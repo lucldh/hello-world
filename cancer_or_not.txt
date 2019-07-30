@@ -13,3 +13,5 @@ for i in range(size) :
     bs_replicates[i] = np.log((np.sum(data1==1)/np.sum(data1==0))/(np.sum(data2==1)/np.sum(data2==0)))
 
 np.sum(bs_replicates>=observed_odds_ratio)/len(bs_replicates)
+
+this is test line.
