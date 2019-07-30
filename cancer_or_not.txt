@@ -1,0 +1,15 @@
+import numpy as np
+mutated = np.array([1]*23 + [0]*117)
+non_mutated = np.array([1]*6 + [0]*210)
+size=10000
+observed_odds_ratio=np.log((np.sum(np.sum(mutated==1)/np.sum(mutated==0))/(np.sum(np.non_mutated==1)/np.sum(non_mutated==0)))
+together = np.empty(len(mutated)+len(non_mutated))
+bs_replicates = np.empty(size)
+for i in range(size) :
+    together = np.concatenate([mutated,non_mutated])
+    data = np.random.permutation(together)
+    data1 = data[:len(mutated)]
+    data2 = data[len(mutated):]
+    bs_replicates[i] = np.log((np.sum(data1==1)/np.sum(data1==0))/(np.sum(data2==1)/np.sum(data2==0)))
+
+np.sum(bs_replicates>=observed_odds_ratio)/len(bs_replicates)
